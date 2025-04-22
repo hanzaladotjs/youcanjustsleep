@@ -11,6 +11,9 @@ const StarryBackground: React.FC = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Create stars array first, before any function that might use it
+    const stars: { x: number; y: number; radius: number; opacity: number; speed: number }[] = [];
+    
     // Set canvas to fullscreen
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -18,12 +21,7 @@ const StarryBackground: React.FC = () => {
       createStars();
     };
 
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    // Create stars
-    const stars: { x: number; y: number; radius: number; opacity: number; speed: number }[] = [];
-    
+    // Function to create stars
     function createStars() {
       stars.length = 0;
       const starCount = Math.floor((canvas.width * canvas.height) / 2000);
@@ -38,6 +36,9 @@ const StarryBackground: React.FC = () => {
         });
       }
     }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
 
     // Animation
     let animationFrameId: number;
