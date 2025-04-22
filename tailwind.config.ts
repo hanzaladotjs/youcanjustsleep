@@ -18,7 +18,26 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				poppins: ['Poppins', 'sans-serif'],
+			},
 			colors: {
+				night: {
+					DEFAULT: '#1A1F2C',
+					darker: '#151820',
+					lighter: '#2A304C',
+				},
+				owl: {
+					DEFAULT: '#D6BCFA',
+					light: '#F1F0FB',
+					dark: '#9F7AEA',
+				},
+				sleep: {
+					good: '#68D391',    // Green for healthy sleep
+					warning: '#F6AD55', // Orange for warning
+					bad: '#FC8181',     // Red for bad sleep
+				},
+				stars: '#FFFFFF',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

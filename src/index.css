@@ -1,6 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -97,5 +100,38 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Glassmorphism effect */
+  .glass {
+    @apply backdrop-blur-md bg-opacity-20 border border-owl-dark/20;
+  }
+  
+  /* Custom input styling */
+  input[type="time"] {
+    @apply cursor-pointer;
+  }
+  
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    @apply filter invert opacity-70 hover:opacity-100 transition-opacity;
   }
 }
